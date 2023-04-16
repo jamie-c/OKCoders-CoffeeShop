@@ -53,6 +53,7 @@ header {
     background-color: var(--light-color);
     opacity: 90%;
     font-weight: 600;
+    z-index: 10;
 }
 
 #navbar span.links {
@@ -74,6 +75,14 @@ header {
 }
 
 /* MAIN ELEMENT STYLES */
+main {
+    padding-top: 100px;
+    color: var(--very-dark-color);
+}
+
+main h2 {
+    color: var(--very-dark-color);
+}
 
 /* SHOP PAGE STYLES */
 h2 {
@@ -115,3 +124,57 @@ h3 {
 }
 
 /* FOOTER STYLES */
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-top: 2em;
+    position: sticky;
+    top: 0px;
+    height: calc(100vh - 60px);
+    background-color: var(--very-dark-color);
+    color: var(--light-color);
+}
+
+.sub-nav a, .footer-section h2, .social-icons a {
+    color: var(--light-color);
+}
+
+.sub-nav a {
+    border-bottom: 2px solid var(--light-color);
+    max-width: fit-content;
+}
+
+.sub-nav a:hover {
+    border-bottom-color: var(--very-dark-color);
+}
+
+.sub-nav {
+    gap: 1em;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    min-width: 300px;
+    padding: 0 2em;
+}
+
+.footer-section > h2 {
+    border-bottom: 2px dotted var(--light-color);
+    font-size: smaller;
+    text-transform: uppercase;
+    font-style: italic;
+    width: 100%;
+}
+
+.social-icons {
+    gap: 1em;
+    font-size: larger;
+    align-items: center;
+    justify-content: space-evenly;
+}
