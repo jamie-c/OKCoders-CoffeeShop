@@ -123,6 +123,53 @@ h3 {
     font-size: .8em;
 }
 
+/* CONTACT FORM STYLES */
+
+.contact-page {
+    align-items: center;
+    padding-bottom: 4em;
+}
+
+.contact-form {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    gap: 1em;
+}
+
+.contact-form label {
+    display: flex;
+}
+
+.contact-form label, .contact-form input, .contact-form textarea {
+    width: 100%;
+    font-size: 1em;
+}
+
+.contact-form input[type="submit"] {
+    max-width: fit-content;
+    text-align: center;
+    padding: 0.5em 2em;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.contact-form input, .contact-form textarea{
+    border: 2px solid var(--dark-color);
+    padding: 0.5em 2em 0.5em 0.4em;
+    border-radius: 3px;
+}
+
+::placeholder {
+    font-weight: bold;
+    color:#1A120B;
+    text-transform: uppercase;
+}
+
+
 /* FOOTER STYLES */
  footer {
     min-height: 100vh;
