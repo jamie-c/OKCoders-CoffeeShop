@@ -49,7 +49,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 60px);
     background-color: var(--dark-color);
     opacity: 90%;
     z-index: 3;
@@ -58,6 +58,7 @@ header {
 header h1 {
     font-size: 3em;
     z-index: 4;
+    text-align: center;
 }
 
 #navbar {
@@ -262,4 +263,135 @@ h3 {
     font-size: 0.7em;
     font-weight: 100;
     font-style: italic;
+    line-height: 1.5;
 }
+
+/* RESPONSIVE NAVBAR MENU */
+input.nav-menu-button-input {
+    display: none;
+}
+
+.nav-menu-button {
+    align-items: center;
+    display: flex;
+    height: 64px;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 3em;
+    right: 0.5em;
+    top: 0;
+    display: none;
+    z-index: 999;
+  }
+
+  .ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .hamRotate.active {
+    transform: rotate(45deg);
+  }
+  .hamRotate180.active {
+    transform: rotate(180deg);
+  }
+  .line {
+    fill:none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke:#000;
+    stroke-width:5.5;
+    stroke-linecap:round;
+  }
+  
+  .ham .top {
+    stroke-dasharray: 40 121;
+  }
+  .ham .bottom {
+    stroke-dasharray: 40 121;
+  }
+  .ham.active .top {
+    stroke-dashoffset: -68px;
+  }
+  .ham.active .bottom {
+    stroke-dashoffset: -68px;
+  }
+
+  @media only screen and (max-width:660px) {
+    main {
+        padding: 6em 1em;
+    }
+
+    .nav-menu-button {
+        display: flex;
+    }
+    
+    #navbar {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        opacity: 90%;
+        z-index: 3;
+    }
+
+    #navbar .links {
+        flex-direction: column;
+        position: fixed;
+        top: 6em;
+        right: 0;
+        align-items: end;
+        justify-content: flex-start;
+        width: 0;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        transition: width 0.5s;
+      }
+      
+      nav a {
+        margin-bottom: 0.5em;
+        color: var(--dark-color);
+      }
+
+      .nav-menu-button-input:checked ~ label ~ .nav-menu-background {
+        height: calc(100vh - 60px);
+        width: 100vw;
+        top: 60px;
+        position: fixed;
+        background: var(--light-color);
+        opacity: 90%;
+        z-index: 2;
+      }
+
+      .nav-menu-button-input:checked + label > .nav-menu-button {
+        display: flex;
+        position: fixed;
+        z-index: 999;
+      } 
+      
+      .color-overlay {
+        z-index: 1;
+        height: 100vh;
+      }
+      
+      header {
+        height: 100vh;
+      }
+
+      .nav-menu-button-input:checked ~ label ~ div ~ header ~ nav .links {
+        width: 100vw;
+        height: 100vh;
+        padding: 1em 0.5em;
+        z-index: 999;
+      }
+
+      .nav-menu-button-input:checked ~ label ~ div ~ header ~ #navbar {
+        overflow-inline;
+      }
+
+  }
