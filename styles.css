@@ -10,6 +10,7 @@ html, body {
     --dark-color: #262A56;
     --bright-color: #B8621B;
     --light-color: #E5E5CB;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -40,6 +41,23 @@ header {
     align-items: center;
     color: var(--light-color);
     text-transform: uppercase;
+    z-index: 2;
+}
+
+.color-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-color);
+    opacity: 90%;
+    z-index: 3;
+}
+
+header h1 {
+    font-size: 3em;
+    z-index: 4;
 }
 
 #navbar {
@@ -78,10 +96,17 @@ header {
 main {
     padding-top: 100px;
     color: var(--very-dark-color);
+    padding-bottom: 6em;
 }
 
 main h2 {
     color: var(--very-dark-color);
+}
+
+/* ABOUT PAGE STYLES */
+#about {
+    padding: 6em 2em;
+    font-size: 1.3em;
 }
 
 /* SHOP PAGE STYLES */
@@ -127,7 +152,7 @@ h3 {
 
 .contact-page {
     align-items: center;
-    padding-bottom: 4em;
+    padding-bottom: 6em;
 }
 
 .contact-form {
@@ -138,7 +163,7 @@ h3 {
     gap: 1em;
 }
 
-.contact-form label {
+.contact-form label, input, textarea {
     display: flex;
 }
 
@@ -167,6 +192,7 @@ h3 {
     font-weight: bold;
     color:#1A120B;
     text-transform: uppercase;
+    font-size: 1em;
 }
 
 

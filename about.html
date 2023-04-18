@@ -4,34 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Coffee Shop</title>
+    <title>About - Coffee Shop</title>
     <script src="https://kit.fontawesome.com/34d1ce521c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body> 
     <header class="flex column">
     <div class="color-overlay"></div>
-    <h1>Contact</h1>
+    <h1>About</h1>
     </header> 
     <nav id="navbar" class="flex row">
         <span class="logo"><a href="./index.html">Drip Coffee</a></span>
         <span class="links flex row">
-        <a href="./about.html">about</a>
+        <a class="active" href="#about">about</a>
         <a href="./shop.html">shop</a>
-        <a class="active" href="#contact">contact</a>
+        <a href="./contact.html">contact</a>
         <a id="login"><i class="login-user-icon fa-regular fa-user"></i><span id="login-txt"> login</span></a>
         </span>
     </nav>
-<main id="contact" class="contact-page flex column">
-    <h1>Contact Form</h1>
-    <p>Please fill out this form with the required information</p>
-    <form class="contact-form flex column" method="post" action=''>
-        <label for="first-name"><input placeholder="FIRST NAME:" id="first-name" name="first-name" type="text" required /></label>
-        <label for="last-name"><input placeholder="LAST NAME:" id="last-name" name="last-name" type="text" required /></label>
-        <label for="email"><input placeholder="EMAIL:" id="email" name="email" type="email" required /></label>
-        <label for="message"><textarea id="message" name="message" placeholder="Write your message here..."></textarea></label>
-      <input type="submit" value="SUBMIT" />
-    </form>
+<main id="about">
+    <p>Welcome to our coffee shop, where we offer the most unique and luxurious coffee in the world - Kopi Luwak! Here at our shop, we're passionate about providing our customers with an unforgettable coffee experience that will leave you wanting more.</p>
+    <p>Our story began with a love for coffee and a fascination with the fascinating process behind Kopi Luwak. For those who don't know, Kopi Luwak is made by collecting the coffee beans that have been eaten and excreted by civet cats. Yes, you read that right! It may sound strange, but trust us when we say it's worth it.</p>
+    <p>We source our Kopi Luwak beans from the finest coffee plantations in Indonesia, where they are collected by hand to ensure only the highest quality beans make it into your cup. Our skilled baristas carefully roast and prepare each cup, ensuring that every sip is a true delight for the senses.</p>
+    <p>But Kopi Luwak isn't the only thing we offer. Our coffee shop also serves a wide range of other delicious coffees, teas, and foods to satisfy any craving. Whether you're in the mood for a creamy latte, a refreshing iced tea, or a decadent pastry, we've got you covered.</p>
+    <p>So come on in and experience the magic of Kopi Luwak for yourself. We promise you won't regret it!</p>
 </main>
 <footer class="flex column">
     <span class="footer flex row">
@@ -41,7 +37,7 @@
             <a href="./index.html">Home</a>
             <a href="./shipping-returns.html">Shipping & Returns</a>
             <a href="./my-account.html">My Account</a>
-            <a href="./about.html">About Us</a>
+            <a href="#about">About Us</a>
             <a href="./contact.html">Connect</a>
         </div>
     </section>
