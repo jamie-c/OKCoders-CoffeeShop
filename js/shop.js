@@ -1,3 +1,7 @@
+const header = document.getElementsByTagName('header');
+
+header[0].style.backgroundImage = "url(./images/juli-kosolapova-a9JHqe81qMg-unsplash.jpg)";
+
 // define element that holds nav page links
 const navLinks = document.getElementsByClassName('links');
 
@@ -17,49 +21,56 @@ const menuItems = {
         price: 400,
         button: "espresso-btn",
         headerId: "espresso-txt",
-        category: "hot-drinks"
+        category: "hot-drinks",
+        imgUrl: "caglar-oskay-44DdVmC2gy0-unsplash.jpg"
     },
     americano: {
         name: "Americano",
         price: 500,
         button: "americano-btn",
         headerId: "americano-txt",
-        category: "hot-drinks"
+        category: "hot-drinks",
+        imgUrl: "jakub-dziubak-XtUd5SiX464-unsplash.jpg"
     },
     coldBrew: {
         name: "Cold Brew",
         price: 700,
         button: "cold-brew-btn",
         headerId: "cold-brew-txt",
-        category: "cold-drinks"
+        category: "cold-drinks",
+        imgUrl: "daniel-hooper-w2wsyjSaHns-unsplash.jpg"
     },
     icedTea: {
         name: "Iced Tea",
         price: 600,
         button: "iced-tea-btn",
         headerId: "iced-tea-txt",
-        category: "cold-drinks"
+        category: "cold-drinks",
+        imgUrl: "wade-austin-ellis-yN7prWLW7xg-unsplash.jpg"
     },
     hummusSandwich: {
         name: "Hummus Sandwich",
         price: 900,
         button: "hummus-sandwich-btn",
         headerId: "hummus-sandwich-txt",
-        category: "sandwiches"
+        category: "sandwiches",
+        imgUrl: ""
     },
     bltSandwich: {
         name: "BLT Sandwich",
         price: 800,
         button: "blt-sandwich-btn",
         headerId: "blt-sandwich-txt",
-        category: "sandwiches"
+        category: "sandwiches",
+        imgUrl: ""
     },
     matchaLatte: {
         name: "Matcha Latte",
         price: 700,
         button: "matcha-latte-btn",
         headerId: "matcha-latte-txt",
-        category: "hot-drinks"
+        category: "hot-drinks",
+        imgUrl: "ann-74NChp1cn5I-unsplash.jpg"
     }
 }
 
