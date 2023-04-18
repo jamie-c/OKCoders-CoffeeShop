@@ -110,6 +110,22 @@ main h2 {
     font-size: 1.3em;
 }
 
+.about-image {
+    width: 500px;
+}
+
+.about-image.left {
+    float: left;
+    padding-right: 1em;
+    width: 300px;
+}
+
+.about-image.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* SHOP PAGE STYLES */
 h2 {
     text-transform: uppercase;
