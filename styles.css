@@ -274,7 +274,7 @@ input.nav-menu-button-input {
 .nav-menu-button {
     align-items: center;
     display: flex;
-    height: 64px;
+    height: 60px;
     justify-content: center;
     margin: 0;
     overflow: hidden;
@@ -336,21 +336,19 @@ input.nav-menu-button-input {
         top: 0;
         width: 100vw;
         opacity: 90%;
-        z-index: 3;
+        z-index: 5;
     }
 
     #navbar .links {
         flex-direction: column;
         position: fixed;
-        top: 6em;
+        top: 0;
         right: 0;
-        align-items: end;
-        justify-content: flex-start;
         width: 0;
-        height: 0;
+        height: 100vh;
         padding: 0;
         overflow: hidden;
-        transition: width 0.5s;
+        /* transition: width 0.5s; */
       }
       
       nav a {
@@ -359,13 +357,13 @@ input.nav-menu-button-input {
       }
 
       .nav-menu-button-input:checked ~ label ~ .nav-menu-background {
-        height: calc(100vh - 60px);
+        height: 100vh;
         width: 100vw;
-        top: 60px;
         position: fixed;
         background: var(--light-color);
         opacity: 90%;
-        z-index: 2;
+        z-index: 5;
+        transition: width 0.5s;
       }
 
       .nav-menu-button-input:checked + label > .nav-menu-button {
@@ -383,15 +381,20 @@ input.nav-menu-button-input {
         height: 100vh;
       }
 
-      .nav-menu-button-input:checked ~ label ~ div ~ header ~ nav .links {
+      .nav-menu-button-input:checked ~ label ~ div ~ header ~ #navbar .links {
         width: 100vw;
         height: 100vh;
         padding: 1em 0.5em;
-        z-index: 999;
+        z-index: 99;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        padding-right: 2em;
+        font-size: 1.5em;
       }
 
       .nav-menu-button-input:checked ~ label ~ div ~ header ~ #navbar {
-        overflow-inline;
+        overflow: visible;
       }
 
   }
