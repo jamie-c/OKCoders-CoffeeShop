@@ -1,6 +1,7 @@
 const header = document.getElementsByTagName('header');
 
 header[0].style.backgroundImage = "url(./images/juli-kosolapova-a9JHqe81qMg-unsplash.jpg)";
+header[0].style.backgroundPositionY = 'top';
 
 // define element that holds nav page links
 const navLinks = document.getElementsByClassName('links');
