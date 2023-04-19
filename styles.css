@@ -417,6 +417,11 @@ input.nav-menu-button-input {
         overflow: visible;
       }
 
+      .remove-scroll {
+        height: 100vh;
+        overflow: hidden;
+      }
+
       /* RESPONSIVE ABOUT PAGE STYLES */
       #about {
       padding: 4em 1em;
