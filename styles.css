@@ -118,12 +118,14 @@ main h2 {
     float: left;
     padding-right: 1em;
     width: 300px;
+    padding-bottom: 2em;
 }
 
 .about-image.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 2em;
 }
 
 /* SHOP PAGE STYLES */
@@ -413,4 +415,19 @@ input.nav-menu-button-input {
         overflow: visible;
       }
 
+      /* RESPONSIVE ABOUT PAGE STYLES */
+      #about {
+      padding: 4em 1em;
+      }
+
+      .about-image.left, .about-image.center {
+        display: block;
+        width: 100%;
+        margin: auto;
+      }
+
+      #about p {
+      text-align: justify;
+      line-height: 1.3;
+      }
   }
