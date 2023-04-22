@@ -6,15 +6,6 @@ header[0].style.backgroundPositionY = 'top';
 // define element that holds nav page links
 const navLinks = document.getElementsByClassName('links');
 
-// define function to get users name and create string containing first and last initials
-let getUserInitials = (userName) => {
-    const firstNameInitial = userName[0];
-    const spacePosition = userName.indexOf(" ");
-    const lastNameInitial = userName[spacePosition + 1];
-    const initialString = firstNameInitial + lastNameInitial;
-    loginText.textContent = ' ' + initialString;
-}
-
 // define menu object with names, prices (in cents - don't deal with fractions here!), any relevant info
 const menuItems = {
     espresso: {
