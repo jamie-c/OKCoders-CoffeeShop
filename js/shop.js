@@ -9,60 +9,74 @@ const navLinks = document.getElementsByClassName('links');
 // define menu object with names, prices (in cents - don't deal with fractions here!), any relevant info
 const menuItems = {
     espresso: {
+        id: "espresso",
         name: "Espresso",
         price: 400,
         button: "espresso-btn",
         headerId: "espresso-txt",
         category: "hot-drinks",
-        imgUrl: "caglar-oskay-44DdVmC2gy0-unsplash.jpg"
+        imgUrl: "caglar-oskay-44DdVmC2gy0-unsplash.jpg",
+        quantity: 0
     },
     americano: {
+        id: "americano",
         name: "Americano",
         price: 500,
         button: "americano-btn",
         headerId: "americano-txt",
         category: "hot-drinks",
-        imgUrl: "jakub-dziubak-XtUd5SiX464-unsplash.jpg"
+        imgUrl: "jakub-dziubak-XtUd5SiX464-unsplash.jpg",
+        quantity: 0
     },
     coldBrew: {
+        id: "coldBrew",
         name: "Cold Brew",
         price: 700,
         button: "cold-brew-btn",
         headerId: "cold-brew-txt",
         category: "cold-drinks",
-        imgUrl: "daniel-hooper-w2wsyjSaHns-unsplash.jpg"
+        imgUrl: "daniel-hooper-w2wsyjSaHns-unsplash.jpg",
+        quantity: 0
     },
     icedTea: {
+        id: "icedTea",
         name: "Iced Tea",
         price: 600,
         button: "iced-tea-btn",
         headerId: "iced-tea-txt",
         category: "cold-drinks",
-        imgUrl: "wade-austin-ellis-yN7prWLW7xg-unsplash.jpg"
+        imgUrl: "wade-austin-ellis-yN7prWLW7xg-unsplash.jpg",
+        quantity: 0
     },
     hummusSandwich: {
+        id: "hummusSandwich",
         name: "Hummus Sandwich",
         price: 900,
         button: "hummus-sandwich-btn",
         headerId: "hummus-sandwich-txt",
         category: "sandwiches",
-        imgUrl: ""
+        imgUrl: "",
+        quantity: 0
     },
     bltSandwich: {
+        id: "bltSandwich",
         name: "BLT Sandwich",
         price: 800,
         button: "blt-sandwich-btn",
         headerId: "blt-sandwich-txt",
         category: "sandwiches",
-        imgUrl: ""
+        imgUrl: "",
+        quantity: 0
     },
     matchaLatte: {
+        id: "matchaLatte",
         name: "Matcha Latte",
         price: 700,
         button: "matcha-latte-btn",
         headerId: "matcha-latte-txt",
         category: "hot-drinks",
-        imgUrl: "ann-74NChp1cn5I-unsplash.jpg"
+        imgUrl: "ann-74NChp1cn5I-unsplash.jpg",
+        quantity: 0
     }
 }
 
@@ -70,14 +84,18 @@ const menuItems = {
 const createMenuItem = (itemName) => {
     const fragment = new DocumentFragment();
     const section = document.createElement('section');
+    const image = document.createElement('img');
     const h = document.createElement('h3');
     const button = document.createElement('button');
     section.setAttribute('class', 'menu-item');
+    image.setAttribute('src', '../images/' + menuItems[itemName]['imgUrl']);
+    image.setAttribute('alt', menuItems[itemName]['name']);
     h.setAttribute('id', menuItems[itemName]['headerId']);
     button.setAttribute('class', 'add-to-cart-button');
     button.setAttribute('id', menuItems[itemName]['button']);
     button.textContent = 'add to cart';
     h.textContent = menuItems[itemName]['name'];
+    section.append(image);
     section.append(h);
     section.append(button);
     fragment.append(section);
@@ -110,8 +128,8 @@ let addItemToCart = (itemName) => {
         navLinks[0].append(addCartToNavBar());
         shoppingCartCountElement = document.getElementById('cart-count');
         shoppingCartDollarsElement = document.getElementById('cart-dollars');
-        addItem(itemName);
-    } else addItem(itemName);
+    };
+    addItem(itemName);
 }
 
 // define function to remove item from cart, then check if cart is empty (remove icon if so), check if item is in cart (remove 'remove from cart' text if so)

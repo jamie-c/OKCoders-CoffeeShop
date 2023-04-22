@@ -129,25 +129,42 @@ main h2 {
 }
 
 /* SHOP PAGE STYLES */
+#shop-menu > section {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: flex-start;
+    gap: 2em;
+}
+
 h2 {
     text-transform: uppercase;
     color: var(--dark-color);
+    margin-top: 2em;
 }
 
 h3 {
     color: var(--very-dark-color);
 }
 
-.menu-item {
+#shop-menu > section > .menu-item {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+}
+
+/* MENU ITEM IMAGE STYLES */
+.menu-item img {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
 }
 
 /* BUTTON STYLES */
 .menu-item button {
     border-radius: 6px;
-    padding: 3px 6px;
+    padding: 3px 2em;
     cursor: pointer;
     height: 2em;
     margin: 0 6px;
@@ -158,6 +175,7 @@ h3 {
     background-color: var(--bright-color);
     text-transform: uppercase;
     color: var(--light-color);
+    font-weight: bold;
 }
 
 .menu-item .remove-from-cart-button {
@@ -165,6 +183,7 @@ h3 {
     font-style: italic;
     cursor: pointer;
     font-size: .8em;
+    margin-top: 0.5em;
 }
 
 /* CONTACT FORM STYLES */
