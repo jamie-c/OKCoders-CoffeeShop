@@ -88,7 +88,7 @@ const createMenuItem = (itemName) => {
     const h = document.createElement('h3');
     const button = document.createElement('button');
     section.setAttribute('class', 'menu-item');
-    image.setAttribute('src', '../images/' + menuItems[itemName]['imgUrl']);
+    image.setAttribute('src', './images/' + menuItems[itemName]['imgUrl']);
     image.setAttribute('alt', menuItems[itemName]['name']);
     h.setAttribute('id', menuItems[itemName]['headerId']);
     button.setAttribute('class', 'add-to-cart-button');
