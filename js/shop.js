@@ -1,6 +1,6 @@
 const header = document.getElementsByTagName('header');
 
-header[0].style.backgroundImage = "url(./images/juli-kosolapova-a9JHqe81qMg-unsplash.jpg)";
+header[0].style.backgroundImage = "url(./images/juli-kosolapova-a9JHqe81qMg-unsplash-square.jpg)";
 header[0].style.backgroundPositionY = 'top';
 
 // define element that holds nav page links
@@ -15,7 +15,7 @@ const menuItems = {
         button: "espresso-btn",
         headerId: "espresso-txt",
         category: "hot-drinks",
-        imgUrl: "caglar-oskay-44DdVmC2gy0-unsplash.jpg",
+        imgUrl: "caglar-oskay-44DdVmC2gy0-unsplash-square.jpg",
         quantity: 0
     },
     americano: {
@@ -25,7 +25,7 @@ const menuItems = {
         button: "americano-btn",
         headerId: "americano-txt",
         category: "hot-drinks",
-        imgUrl: "jakub-dziubak-XtUd5SiX464-unsplash.jpg",
+        imgUrl: "jakub-dziubak-XtUd5SiX464-unsplash-square.jpg",
         quantity: 0
     },
     coldBrew: {
@@ -35,7 +35,7 @@ const menuItems = {
         button: "cold-brew-btn",
         headerId: "cold-brew-txt",
         category: "cold-drinks",
-        imgUrl: "daniel-hooper-w2wsyjSaHns-unsplash.jpg",
+        imgUrl: "daniel-hooper-w2wsyjSaHns-unsplash-square.jpg",
         quantity: 0
     },
     icedTea: {
@@ -45,7 +45,7 @@ const menuItems = {
         button: "iced-tea-btn",
         headerId: "iced-tea-txt",
         category: "cold-drinks",
-        imgUrl: "wade-austin-ellis-yN7prWLW7xg-unsplash.jpg",
+        imgUrl: "wade-austin-ellis-yN7prWLW7xg-unsplash-square.jpg",
         quantity: 0
     },
     hummusSandwich: {
@@ -75,7 +75,7 @@ const menuItems = {
         button: "matcha-latte-btn",
         headerId: "matcha-latte-txt",
         category: "hot-drinks",
-        imgUrl: "ann-74NChp1cn5I-unsplash.jpg",
+        imgUrl: "ann-74NChp1cn5I-unsplash-square.jpg",
         quantity: 0
     }
 }
@@ -121,6 +121,12 @@ let shoppingCartDollarsElement;
 const shoppingCart = [];
 let shoppingCartTotal = 0;
 
+// define function for menu icon animation
+const animateMenuButton = () => {
+    hamRotate[0].classList.add('active');
+    setTimeout(() => { hamRotate[0].classList.remove('active'); }, 250);
+}
+
 // define function to add items to cart
 let addItemToCart = (itemName) => {
     // if adding first item to cart, add cart icon to the navbar
@@ -130,6 +136,7 @@ let addItemToCart = (itemName) => {
         shoppingCartDollarsElement = document.getElementById('cart-dollars');
     };
     addItem(itemName);
+    animateMenuButton();
 }
 
 // define function to remove item from cart, then check if cart is empty (remove icon if so), check if item is in cart (remove 'remove from cart' text if so)
@@ -142,6 +149,7 @@ let remItemFromCart = (itemName) => {
     if (!shoppingCart.includes(itemName)) {
         document.getElementById(itemName + '-remove-from-cart').remove();
     }
+    animateMenuButton();
 }
 
 // add item to the shoppingCart list, update cart count and dollar elements with correct values, add 'remove from cart' text if not already in shopping cart
