@@ -364,6 +364,109 @@ input.nav-menu-button-input {
   .ham.active .bottom {
     stroke-dashoffset: -68px;
   }
+  
+  /* SHOPPING CART DROPDOWN STYLING */
+/* CREATE CONTAINER WITH BORDER FOR EXPANDING NAV */
+#shopping-cart {
+    margin-top: 2em;
+    border: 2px solid var(--very-dark-color);
+    border-radius: 6px;
+    min-width: 200px;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .content {
+    flex: 1;
+    width: 80vw;
+  }
+  
+  /* HIDE THE INPUT CHECKBOX */
+  #shopping-cart input {
+    display: none;
+  }
+
+  /* SET STYLING FOR CLICKABLE LABEL ELEMENT */
+  #shopping-cart label {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: left;
+    line-height: 40px;
+    cursor: pointer;
+    padding-left: 10px;
+  }
+
+  #shopping-cart label:hover {
+    font-weight: 800;
+    color: var(--light-color);
+    background-color: var(--very-dark-color);
+  }
+  
+   /* SET UNEXPANDED STYLE FOR NAV LIST */
+  #shopping-cart ul {
+    overflow: hidden;
+    min-height: 0px;
+    max-height: 0px;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s linear 0s;
+    list-style: none;
+  }
+  
+  /* SET EXPANDED STYLE FOR NAV LIST */
+  #shopping-cart input:checked ~ ul {
+    width: 100%;
+    min-height: 30px;
+    max-height: 3000vh;
+  }
+
+  #shopping-cart input:checked ~ ul li {
+    padding: 0.25em 1em;
+  }
+
+  #cartToggle:checked ~ ul {
+    max-height: 400px;
+}
+  
+  #shopping-cart ul li a {
+    color: var(--very-dark-color);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    letter-spacing:2 px;
+    text-align: left;
+    transition: color 0.5s;
+    padding-left: 20px;
+    border-bottom: none;
+  }
+  
+  #shopping-cart ul li a:hover {
+    background: var(--very-dark-color);
+    color: white;
+  }
+
+  li.indent {
+    text-indent: 1em;
+  }
+  
+  li.indent a {
+    text-indent: 1em;
+  }
+
+  li.indent-2x a {
+    text-indent: 2em;
+  }
+
+  #shopping-cart ul li {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2em;
+  }
 
   @media only screen and (max-width:660px) {
     main {
