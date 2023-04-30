@@ -1,6 +1,6 @@
 const header = document.getElementsByTagName('header');
 
-header[0].style.backgroundImage = "url(./images/juli-kosolapova-a9JHqe81qMg-unsplash-square.jpg)";
+header[0].style.backgroundImage = "url(../images/juli-kosolapova-a9JHqe81qMg-unsplash.jpg)";
 header[0].style.backgroundPositionY = 'top';
 
 // define element that holds nav page links
@@ -14,6 +14,29 @@ const cartTotal = document.getElementById('total');
 
 // define checkbox element that shows/hides shopping cart
 const cartToggle = document.getElementById('cartToggle');
+
+// define cart element
+const shopCartElement = document.getElementById('shopping-cart');
+
+// define cart-info element
+const cartInfo = document.getElementById('cart-info');
+
+// define cart-close button
+const cartClose = document.getElementById('cart-close');
+cartClose.addEventListener('click', () => openClose());
+
+// define function to open close cart
+const openClose = () => {
+    if (cartToggle.checked === false) {
+        cartToggle.checked = true;
+        shopCartElement.style.right = '0px';
+        document.getElementsByTagName('body')[0].classList.add('remove-scroll');
+    } else {
+        cartToggle.checked = false;
+        shopCartElement.style.right = '-400px';
+        document.getElementsByTagName('body')[0].classList.remove('remove-scroll');
+    }
+}
 
 // define menu object with names, prices (in cents - don't deal with fractions here!), any relevant info
 const menuItems = [
@@ -96,6 +119,10 @@ const menuItems = [
     }
 ]
 
+const getMenuItem = (itemName) => {
+    return menuItems.filter(element => element.name === itemName)[0];
+}
+
 // Define function to build menu item section
 const createMenuItem = (item) => {
     const fragment = new DocumentFragment();
@@ -120,14 +147,19 @@ const createMenuItem = (item) => {
 
 // Function to add item to cart dropdown
 const createCartLi = (itemName) => {
+    let item = getMenuItem(itemName);
     const fragment = document.createDocumentFragment();
     const li = document.createElement('li');
     const spL = document.createElement('span');
     const spR = document.createElement('span');
+    const prodImg = document.createElement('img');
     li.setAttribute('class', 'indent');
     li.setAttribute('id', itemName + '-cart-list-item');
-    spL.textContent = itemName;
     spR.setAttribute('id', itemName + '-total');
+    prodImg.setAttribute('src', '../images/' + item.imgUrl);
+    prodImg.setAttribute('alt', itemName + ' image');
+    spL.append(prodImg);
+    spL.append(itemName);
     li.append(spL);
     li.append(spR);
     fragment.append(li);
@@ -142,11 +174,6 @@ const displayMenuItems = () => {
         document.getElementById(element.button).addEventListener('click', () => addItemToCart(element.name));
     });
 }
-// for (let item of Object.keys(menuItems)) {
-//     const shopMenuSection = document.getElementById(menuItems[item]['category']);
-//     shopMenuSection.append(createMenuItem(item));
-//     document.getElementById(menuItems[item]['button']).addEventListener('click', () => addItemToCart(item));
-// }
 
 // define elements that are the add to cart button -- returns list
 const addToCartButton = document.getElementsByClassName('add-to-cart-button');
@@ -172,9 +199,7 @@ let addItemToCart = (itemName) => {
     if (shoppingCart.length == 0) {
         navLinks[0].append(addCartToNavBar());
         document.getElementById('cart-info').addEventListener('click', () => {
-            if (cartToggle.checked === false) {
-                cartToggle.checked = true;
-            } else cartToggle.checked = false;
+           openClose(); 
         });
         shoppingCartCountElement = document.getElementById('cart-count');
         shoppingCartDollarsElement = document.getElementById('cart-dollars');
