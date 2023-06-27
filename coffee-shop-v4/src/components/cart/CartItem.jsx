@@ -30,7 +30,9 @@ const CartItem = ({ menuItem, remFromCart }) => {
                     src={img} 
                     alt="pic" 
                     style={{
-                        height:'25px'
+                        height:'25px',
+                        width:'25px',
+                        objectFit:'cover'
                     }}
                 />
                 {`${name} (${quantity})`}

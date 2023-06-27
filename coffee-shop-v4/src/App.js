@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { ulid } from 'ulidx';
-import Menu from './components/Menu';
+import Menu from './components/menu/Menu';
 import NavBar from './components/navbar/NavBar';
 
 function App() {

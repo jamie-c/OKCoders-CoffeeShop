@@ -1,6 +1,6 @@
 import CartItem from "./CartItem";
 
-const Cart = ({ shoppingCart, remFromCart }) => {
+const Cart = ({ shoppingCart, remFromCart, toggleCartVisibility }) => {
 
     const cartTotalPrice = shoppingCart.length === 0 ? '0' : 
         shoppingCart.reduce((total, { price, quantity }) => {
@@ -32,7 +32,14 @@ const Cart = ({ shoppingCart, remFromCart }) => {
                     alignItems:'center',
                     padding:'5px 10px'
                 }}  
-            >SHOPPING CART<span>X</span>
+            >
+                SHOPPING CART
+                <span 
+                    style={{cursor:'pointer'}}
+                    onClick={toggleCartVisibility}
+                >
+                    X
+                </span>
             </span>
             <div>
                 {
