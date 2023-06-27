@@ -78,4 +78,4 @@ const MenuCatalog = [
     }
 ]
 
-export default MenuCatalog;
+// export default MenuCatalog;

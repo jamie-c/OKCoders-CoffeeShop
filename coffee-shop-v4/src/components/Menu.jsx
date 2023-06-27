@@ -1,35 +1,68 @@
 import AddToCartButton from "./AddToCartButton";
-import MenuCatalog from "./MenuCatalog";
-import MenuItem from "./MenuItem";
+// import { coffeeMenuCatalog } from "./menuCatalog";
+import { menuCatalog } from "./menuCatalog";
+// import MenuItem from "./MenuItem";
 
-const Menu = () => {
+const Menu = ({ addToCart }) => {
 
-    const categories = MenuCatalog.reduce((acc, item) => {
-        acc[item.category] = acc[item.category] || [];
-        acc[item.category].push(item);
-        return acc;
-    }, {});
+    // const categories = coffeeMenuCatalog.reduce((acc, item) => {
+    //     acc[item.category] = acc[item.category] || [];
+    //     acc[item.category].push(item);
+    //     return acc;
+    // }, {});
     
-    console.log({categories})
+    // console.log({categories})
 
 return (
-    <div>
-      {Object.entries(categories).map(([category, items]) => (
-        <div key={category}>
-          <h2>{category}</h2>
-            {items.map(({ id, name, imgUrl }) => {
-                console.log(name)
-                return (
-                <MenuItem
-                    id={id}
-                    name={name}
-                    imgUrl={imgUrl}
-                />
-                )
-            })}
-        </div>
+    // <div>
+    //   {Object.entries(categories).map(([category, items]) => (
+    //     <div key={category}>
+    //       <h2>{category}</h2>
+    //         {items.map(({ id, name, imgUrl }) => {
+    //             console.log(name)
+    //             return (
+    //             <MenuItem
+    //                 id={id}
+    //                 name={name}
+    //                 imgUrl={imgUrl}
+    //             />
+    //             )
+    //         })}
+    //     </div>
+    //   ))}
+      <>
+      <h1>MENU</h1>
+      <div 
+          style={{
+            display:'flex',
+            flexDirection:'row',
+            flexWrap:'wrap',
+            justifyContent:'center',
+            alignItems:'center',
+            padding:'15px 15px',
+            gap:'15px',
+          }}
+      >
+      {menuCatalog.map(menuItem => (
+          <section
+            key={menuItem.id}
+            style={{
+              display:'flex',
+              flexDirection:'column',
+              justifyContent:'center',
+              alignItems:'center',
+              gap:'10px'
+            }}
+          >
+            <h2>{menuItem.name}</h2>
+            <div>{menuItem.price}</div>
+            <img src={menuItem.img} alt="menu item"/>
+            <AddToCartButton addToCart={addToCart} menuItem={menuItem} />
+          </section>
       ))}
-    </div>
+      </div>
+      </>
+    // </div>
   );
     // return (
 

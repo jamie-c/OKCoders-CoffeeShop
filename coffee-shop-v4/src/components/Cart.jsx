@@ -1,7 +1,15 @@
 import CartItem from "./CartItem";
 
-const Cart = () => {
-    // const cartTotalPrice;
+const Cart = ({ shoppingCart, remFromCart }) => {
+
+    const cartTotalPrice = shoppingCart.length === 0 ? '0' : 
+        shoppingCart.reduce((total, { price, quantity }) => {
+
+            if (price.startsWith('$')) {
+                price = Number(price.slice(1)) * quantity;
+            }
+                return total + price;
+        }, 0).toFixed(2);
     
     return (
         <div 
@@ -9,10 +17,11 @@ const Cart = () => {
                 border:'2px solid black',
                 borderRadius:6,
                 width:320,
-                height:'90vh',
+                maxHeight:'90vh',
                 position:'fixed',
                 right:5,
                 backgroundColor:'var(--light-color)',
+                overflow:'scroll',
                 }}
         >
             <span
@@ -26,7 +35,15 @@ const Cart = () => {
             >SHOPPING CART<span>X</span>
             </span>
             <div>
-                <CartItem />
+                {
+                    shoppingCart.length === 0 ? 'Shopping Cart is Empty' :
+                    shoppingCart.map((menuItem) => {
+
+                        return (
+                            <CartItem menuItem={menuItem} remFromCart={remFromCart} />
+                        )
+                    })
+                }
             </div>
             <div
                 style={{
@@ -38,7 +55,7 @@ const Cart = () => {
                     borderTop:'2px solid black', 
                 }}
             >
-                <span>TOTAL:</span><span id="total">$32</span>
+                <span>TOTAL:</span><span id="total">${cartTotalPrice}</span>
             </div>
         </div>
     );

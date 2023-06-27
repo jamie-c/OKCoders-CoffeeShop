@@ -1,6 +1,14 @@
-const CartItem = () => {
+const CartItem = ({ menuItem, remFromCart }) => {
+
+    const { id, img, name, price, quantity } = menuItem;
+
+    const handleRemFromCart = (item) => {
+        remFromCart(item)
+    }
+
     return (
         <div 
+            key={id}
             style={{
                 height:30,
                 display:'flex',
@@ -19,16 +27,27 @@ const CartItem = () => {
                 }}
             >
                 <img 
-                    src="./images/ann-74NChp1cn5I-unsplash-square.jpg" 
-                    alt="Matcha Latte" 
+                    src={img} 
+                    alt="pic" 
                     style={{
                         height:'25px'
                     }}
                 />
-                Matcha Latte
+                {`${name} (${quantity})`}
+                <span
+                    onClick={() => handleRemFromCart(menuItem)}
+                    style={{
+                        color:'gray',
+                        fontSize:'0.7rem',
+                        alignSelf:'center',
+                        cursor:'pointer'
+                    }}
+                >
+                    remove
+                </span>
             </span>
             <span>
-                $7
+                {(price.slice(1) * quantity).toFixed(2)}
             </span>
         </div>
     )

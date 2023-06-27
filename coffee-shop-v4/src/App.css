@@ -172,13 +172,13 @@ h3 {
 }
 
 /* BUTTON STYLES */
-.menu-item button {
+button {
     border-radius: 6px;
     padding: 1em 2em;
     cursor: pointer;
 }
 
-.menu-item button.add-to-cart-button {
+button.add-to-cart-button {
     border: 2px solid var(--bright-color);
     background-color: var(--bright-color);
     text-transform: uppercase;

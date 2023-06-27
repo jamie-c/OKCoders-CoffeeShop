@@ -2,26 +2,25 @@ import { useState } from "react";
 import NavItem from "./NavItem";
 import Cart from "../Cart";
 
-const NavBar = () => {
+const NavBar = ({ shoppingCart, remFromCart }) => {
 
     const [cartVisible, setCartVisible] = useState(false);
 
     const toggleCartVisibility = () => {
         setCartVisible(!cartVisible);
-        console.log('clicked cart!');
     };
 
-    const mainNavItems = [['about', '#about'], ['shop', '#shop'], ['contact', '#contact'], ['cart', '#cart']];
+    const mainNavItems = [['about', '#about'], ['shop', '#shop'], ['contact', '#contact']];
 
     return (
         <>
-            <nav id="navbar" class="flex row">
-                <span class="logo"><a href="./index.html">Drip Coffee</a></span>
-                <span class="links flex row">
+            <nav id="navbar" className="flex row">
+                <span key="logo" className="logo"><a href="./index.html">Drip Coffee</a></span>
+                <span key="links" className="links flex row">
                     {mainNavItems.map(([title, url]) => (
                         <NavItem url={url} title={title}/>
                     ))}
-                    <a id="login"><i class="login-user-icon fa-regular fa-user"></i><span id="login-txt"> login</span></a>
+                    <a key="login"><i className="login-user-icon fa-regular fa-user"></i><span id="login-txt"> login</span></a>
                     <span 
                         onClick={toggleCartVisibility}
                         style={{cursor:'pointer'}}><i 
@@ -34,7 +33,7 @@ const NavBar = () => {
                     </span>
                 </span>
             </nav>
-            {cartVisible && <Cart />}
+            {cartVisible && <Cart shoppingCart={shoppingCart} remFromCart={remFromCart} />}
         </>
     );
 };
