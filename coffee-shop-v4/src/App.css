@@ -13,6 +13,10 @@ html, body {
     scroll-behavior: smooth;
 }
 
+img {
+    border-radius: 6px;
+}
+
 a {
     text-decoration: none;
     color: var(--dark-color);

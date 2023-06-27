@@ -6,6 +6,12 @@ import NavBar from './components/navbar/NavBar';
 
 function App() {
 
+  const [cartVisible, setCartVisible] = useState(false);
+
+  const toggleCartVisibility = () => {
+      setCartVisible(!cartVisible);
+  };
+
   const [shoppingCart, setShoppingCart] = useState([]);
 
   const addToCart = (menuItem) => {
@@ -41,8 +47,17 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar shoppingCart={shoppingCart} remFromCart={remFromCart} />
-      <Menu addToCart={addToCart} />
+      <NavBar 
+        shoppingCart={shoppingCart}
+        remFromCart={remFromCart} 
+        cartVisible={cartVisible}
+        toggleCartVisibility={toggleCartVisibility}
+      />
+      <Menu 
+        addToCart={addToCart} 
+        cartVisible={cartVisible} 
+        toggleCartVisibility={toggleCartVisibility} 
+      />
     </div>
   );
 }

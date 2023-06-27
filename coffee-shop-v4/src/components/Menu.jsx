@@ -3,7 +3,7 @@ import AddToCartButton from "./AddToCartButton";
 import { menuCatalog } from "./menuCatalog";
 // import MenuItem from "./MenuItem";
 
-const Menu = ({ addToCart }) => {
+const Menu = ({ addToCart, cartVisible, toggleCartVisibility }) => {
 
     // const categories = coffeeMenuCatalog.reduce((acc, item) => {
     //     acc[item.category] = acc[item.category] || [];
@@ -57,7 +57,12 @@ return (
             <h2>{menuItem.name}</h2>
             <div>{menuItem.price}</div>
             <img src={menuItem.img} alt="menu item"/>
-            <AddToCartButton addToCart={addToCart} menuItem={menuItem} />
+            <AddToCartButton
+              addToCart={addToCart}
+              menuItem={menuItem}
+              cartVisible={cartVisible}
+              toggleCartVisibility={toggleCartVisibility} 
+            />
           </section>
       ))}
       </div>

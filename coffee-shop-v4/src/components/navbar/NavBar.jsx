@@ -2,13 +2,7 @@ import { useState } from "react";
 import NavItem from "./NavItem";
 import Cart from "../Cart";
 
-const NavBar = ({ shoppingCart, remFromCart }) => {
-
-    const [cartVisible, setCartVisible] = useState(false);
-
-    const toggleCartVisibility = () => {
-        setCartVisible(!cartVisible);
-    };
+const NavBar = ({ shoppingCart, remFromCart, toggleCartVisibility, cartVisible }) => {
 
     const mainNavItems = [['about', '#about'], ['shop', '#shop'], ['contact', '#contact']];
 
