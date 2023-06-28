@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import NavItem from "./NavItem";
 import Cart from "../cart/Cart";
+import { Slide } from "@mui/material";
 
 const NavBar = ({ shoppingCart, remFromCart, addToCart, toggleCartVisibility, cartVisible }) => {
 
