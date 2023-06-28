@@ -22,6 +22,8 @@ const Cart = ({ shoppingCart, remFromCart, addToCart, toggleCartVisibility }) =>
                 right:5,
                 backgroundColor:'var(--light-color)',
                 overflow:'scroll',
+                boxShadow:'var(--shadow-elevation-medium)',
+                zIndex:10
                 }}
         >
             <span
@@ -41,7 +43,12 @@ const Cart = ({ shoppingCart, remFromCart, addToCart, toggleCartVisibility }) =>
                     X
                 </span>
             </span>
-            <div>
+            <div
+                style={{
+                    minHeight:'60px',
+                    paddingTop:'10px'
+                }}
+            >
                 {
                     shoppingCart.length === 0 ? 'Shopping Cart is Empty' :
                     shoppingCart.map((menuItem) => {
