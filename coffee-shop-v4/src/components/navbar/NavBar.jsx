@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import NavItem from "./NavItem";
 import Cart from "../cart/Cart";
 
-const NavBar = ({ shoppingCart, remFromCart, toggleCartVisibility, cartVisible }) => {
+const NavBar = ({ shoppingCart, remFromCart, addToCart, toggleCartVisibility, cartVisible }) => {
 
     const [showShadow, setShowShadow] = useState(false);
 
@@ -45,6 +45,7 @@ const NavBar = ({ shoppingCart, remFromCart, toggleCartVisibility, cartVisible }
             <Cart 
                 shoppingCart={shoppingCart} 
                 remFromCart={remFromCart} 
+                addToCart={addToCart}
                 toggleCartVisibility={toggleCartVisibility}
             />}
         </>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import { ulid } from 'ulidx';
 import Menu from './components/menu/Menu';
 import NavBar from './components/navbar/NavBar';
 
@@ -49,6 +48,7 @@ function App() {
     <div className="App">
       <NavBar 
         shoppingCart={shoppingCart}
+        addToCart={addToCart}
         remFromCart={remFromCart} 
         cartVisible={cartVisible}
         toggleCartVisibility={toggleCartVisibility}

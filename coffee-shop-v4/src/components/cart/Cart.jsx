@@ -1,6 +1,6 @@
 import CartItem from "./CartItem";
 
-const Cart = ({ shoppingCart, remFromCart, toggleCartVisibility }) => {
+const Cart = ({ shoppingCart, remFromCart, addToCart, toggleCartVisibility }) => {
 
     const cartTotalPrice = shoppingCart.length === 0 ? '0' : 
         shoppingCart.reduce((total, { price, quantity }) => {
@@ -47,7 +47,7 @@ const Cart = ({ shoppingCart, remFromCart, toggleCartVisibility }) => {
                     shoppingCart.map((menuItem) => {
 
                         return (
-                            <CartItem menuItem={menuItem} remFromCart={remFromCart} />
+                            <CartItem menuItem={menuItem} addToCart={addToCart} remFromCart={remFromCart} />
                         )
                     })
                 }

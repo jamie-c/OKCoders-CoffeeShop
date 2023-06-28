@@ -1,9 +1,20 @@
-const CartItem = ({ menuItem, remFromCart }) => {
+import TextField from '@mui/material/TextField';
+
+const CartItem = ({ menuItem, remFromCart, addToCart }) => {
 
     const { id, img, name, price, quantity } = menuItem;
 
     const handleRemFromCart = (item) => {
         remFromCart(item)
+    }
+
+    const handleChangeQuantity = (val) => {
+        if (val > quantity) {
+            addToCart(menuItem);
+        }
+        if (val < quantity) {
+            remFromCart(menuItem);
+        }
     }
 
     return (
@@ -15,7 +26,7 @@ const CartItem = ({ menuItem, remFromCart }) => {
                 flexDirection:'row',
                 justifyContent:'space-between',
                 alignItems:'center',
-                padding:'5px 10px'
+                padding:'25px 10px'
             }}
         >
             <span
@@ -35,8 +46,20 @@ const CartItem = ({ menuItem, remFromCart }) => {
                         objectFit:'cover'
                     }}
                 />
-                {`${name} (${quantity})`}
-                <span
+                {name}
+                <TextField 
+                    hiddenLabel
+                    label='Quantity'
+                    type='number'
+                    value={quantity}
+                    onChange={e => handleChangeQuantity(e.target.value)}
+                    size='small'
+                    sx={{
+                        borderColor:'var(--very-dark-color)',
+                        maxWidth:'5rem'
+                    }}
+                />
+                {/* <span
                     onClick={() => handleRemFromCart(menuItem)}
                     style={{
                         color:'gray',
@@ -46,7 +69,7 @@ const CartItem = ({ menuItem, remFromCart }) => {
                     }}
                 >
                     remove
-                </span>
+                </span> */}
             </span>
             <span>
                 {(price.slice(1) * quantity).toFixed(2)}
