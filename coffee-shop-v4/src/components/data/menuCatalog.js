@@ -5,37 +5,43 @@ export const menuCatalog = [
     id: ulid(),
     name: 'Bagels',
     price: '$5.00',
-    img: 'https://source.unsplash.com/400x400/?bagels'
+    // img: 'https://source.unsplash.com/400x400/?bagels'
+    img: 'https://images.unsplash.com/photo-1627308595260-6fad84c40413?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80'
   },
   {
     id: ulid(),
     name: 'Muffins',
     price: '$3.50',
-    img: 'https://source.unsplash.com/400x400/?muffins'
+    // img: 'https://source.unsplash.com/400x400/?muffins'
+    img: 'https://images.unsplash.com/photo-1607958996333-41aef7caefaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
   },
   {
     id: ulid(),
     name: 'Hot Coffee',
     price: '$2.00',
-    img: 'https://source.unsplash.com/400x400/?coffee'
+    // img: 'https://source.unsplash.com/400x400/?coffee'
+    img: 'https://images.unsplash.com/photo-1561766926-a7c863179e15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
   },
   {
     id: ulid(),
     name: 'Iced Coffee',
     price: '$3.00',
-    img: 'https://source.unsplash.com/400x400/?icedcoffee'
+    // img: 'https://source.unsplash.com/400x400/?icedcoffee'
+    img: 'https://images.unsplash.com/photo-1517959105821-eaf2591984ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80'
   },
   {
     id: ulid(),
     name: 'Espresso',
     price: '$2.50',
-    img: 'https://source.unsplash.com/400x400/?espresso'
+    // img: 'https://source.unsplash.com/400x400/?espresso'
+    img: 'https://images.unsplash.com/photo-1595928642581-f50f4f3453a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1455&q=80'
   },
   {
     id: ulid(),
     name: 'Lattes',
     price: '$4.00',
-    img: 'https://source.unsplash.com/400x400/?latte'
+    // img: 'https://source.unsplash.com/400x400/?latte'
+    img: 'https://images.unsplash.com/photo-1621135177072-57c9b6242e7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'
   }
 ];
 
