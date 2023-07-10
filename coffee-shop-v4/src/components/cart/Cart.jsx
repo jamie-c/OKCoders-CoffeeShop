@@ -26,7 +26,7 @@ export default function Cart({ shoppingCart, remFromCart, addToCart }) {
             height:'calc(100vh - 100px)',
             position:'fixed',
             right:'10px',
-            bottom:'20px',
+            top:'90px',
             zIndex:10,
         }}
     >
