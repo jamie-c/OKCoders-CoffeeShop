@@ -4,7 +4,6 @@ import { Outlet } from "react-router-dom";
 import Footer from "./footer/Footer";
 import Cart from "./cart/Cart";
 
-console.log('rendering layout...');
 const Layout = ({ shoppingCart, addToCart, remFromCart, cartVisible, toggleCartVisibility, loggedIn }) => {
 
     // if (loggedIn === false) {
