@@ -1,3 +1,5 @@
+import { Button } from "@mui/material";
+
 const AddToCartButton = ({ addToCart, menuItem, cartVisible, toggleCartVisibility }) => {
 
     const brieflyShowCart = () => {
@@ -13,12 +15,14 @@ const AddToCartButton = ({ addToCart, menuItem, cartVisible, toggleCartVisibilit
     };
 
     return (
-    <button
+    <Button
+        color="primary"
+        variant="contained"
         className="add-to-cart-button"
         onClick={() => handleAddToCart(menuItem)}
     >
         add to cart
-    </button>
+    </Button>
     );
 };
 
