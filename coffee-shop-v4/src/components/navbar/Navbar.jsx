@@ -128,7 +128,6 @@ const Navbar = ({ shoppingCart, toggleCartVisibility, cartVisible, loggedIn, set
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
