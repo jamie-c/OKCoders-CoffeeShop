@@ -1,7 +1,6 @@
 import MenuItem from "../components/menu/MenuItem";
 import { menuCatalog } from "../components/data/menuCatalog";
 import Announcement from "../components/Announcement";
-import MenuItem2 from "../components/menu/MenuItem2";
 import { Box, Grid, Typography } from "@mui/material";
 
 const Menu = ({ addToCart, cartVisible, toggleCartVisibility }) => {
@@ -26,7 +25,7 @@ return (
             <Grid container spacing={{ xs: 1, md: 3 }} wrap='wrap' justifyContent='center' columns={{ xs: 12, sm: 12, md: 12 }}>
               {menuCatalog.map(menuItem => (
                 <Grid item xs={12} sm={6} md={4} key={menuItem.id} container justifyContent='center'>
-                  <MenuItem2 
+                  <MenuItem 
                     menuItem={menuItem}
                     addToCart={addToCart}
                     cartVisible={cartVisible}
