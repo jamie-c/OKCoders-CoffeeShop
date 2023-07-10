@@ -8,6 +8,7 @@ import Login from './routes/Login';
 import Contact from './routes/Contact';
 import Navbar from './components/navbar/Navbar';
 import Cart from './components/cart/Cart';
+import Footer from './components/footer/Footer';
 
 function App() {
 
@@ -130,6 +131,7 @@ function App() {
                 element={<Contact />}
               />
             </Routes>
+            <Footer />
         </div>
     </ThemeProvider>
   );
