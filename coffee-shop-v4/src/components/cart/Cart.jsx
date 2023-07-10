@@ -21,11 +21,12 @@ export default function Cart({ shoppingCart, remFromCart, addToCart }) {
         sx={{
             maxWidth: 400,
             minWidth: 300,
+            width: {xs:'100%', sm:400},
             border:'2px solid var(--very-dark-color)',
             bgcolor:'var(--light-color)',
             height:'calc(100vh - 100px)',
             position:'fixed',
-            right:'10px',
+            right:{xs:0, sm:'10px'},
             top:'90px',
             zIndex:10,
         }}
@@ -36,7 +37,6 @@ export default function Cart({ shoppingCart, remFromCart, addToCart }) {
     <List
       sx={{
         width: '100%',
-        maxWidth: 360,
         paddingBottom: 0,
       }}
     >
