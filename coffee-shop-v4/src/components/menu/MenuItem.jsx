@@ -1,84 +1,39 @@
-import zIndex from "@mui/material/styles/zIndex";
-import AddToCartButton from "../AddToCartButton";
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import AddToCartButton from '../AddToCartButton';
 
-const MenuItem = ({ menuItem, cartVisible, toggleCartVisibility, addToCart }) => {
+export default function MenuItem({ menuItem, cartVisible, toggleCartVisibility, addToCart }) {
 
     const { id, name, price, img } = menuItem;
 
-    return ( 
-        <section
-            key={id}
-            style={{
-              display:'flex',
-              flexDirection:'column',
-              justifyContent:'center',
-              alignItems:'center',
-              gap:'10px',
-              marginBottom:50
-            }}
-          >
-            <div
-              style={{
-                width:400,
-                height:400,
-                position:'relative',
-                overflow:'hidden',
-              }}
-            >
-              <h2
-                style={{
-                  position: 'absolute', // Added position property
-                  top: 100, // Positioned at the top
-                  left: 0, // Positioned at the left
-                  color: 'white', // Added text color
-                  margin: 0, // Remove default margin
-                  width: '100%', // Full width
-                  fontSize:'3.2rem',
-                  zIndex:9
-                }}
-              >{name}</h2>
-              <div
-                style={{
-                  position: 'absolute', // Added position property
-                  bottom: 0, // Positioned at the bottom
-                  width:'100%',
-                  backgroundColor: 'var(--dark-color)', // Added background color with opacity
-                  color: 'white', // Added text color
-                  padding: '8px 0', // Added padding
-                  margin: 0, // Remove default margin
-                  zIndex:9
-                }}
-              >{price}</div>
-              <div
-                style={{
-                  width:'100%',
-                  height:'100%',
-                  backgroundColor:'var(--dark-color)',
-                  opacity:'0.7',
-                  position:'absolute',
-                  top:0,
-                  left:0,
-                  zIndex:8
-                }}
-              ></div>
-              <img
-                src={img}
-                alt="menu item"
-                style={{
-                  width:'100%',
-                  height:'100%',
-                  objectFit:'cover',
-                }}
-              />
-            </div>
+    return (
+      <Card sx={{ flex: 1, maxWidth: 345 }}>
+        <CardMedia
+          component="img"
+          alt={name}
+          height="140"
+          image={img}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {price}
+          </Typography>
+        </CardContent>
+        <CardActions sx={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
             <AddToCartButton
               addToCart={addToCart}
               menuItem={menuItem}
               cartVisible={cartVisible}
               toggleCartVisibility={toggleCartVisibility} 
             />
-          </section>
-    )
+        </CardActions>
+      </Card>
+    );
 }
-
-export default MenuItem;
