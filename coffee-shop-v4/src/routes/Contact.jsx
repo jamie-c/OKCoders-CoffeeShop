@@ -1,5 +1,5 @@
 import { Stack } from '@mui/material';
-import ContactForm from '../ContactForm';
+import ContactForm from '../components/ContactForm';
 
 const Contact = () => {
     return (

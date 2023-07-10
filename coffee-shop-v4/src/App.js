@@ -1,86 +1,57 @@
 import './App.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import Layout from './components/Layout';
-import Menu from './pages/Menu';
+import Menu from './routes/Menu';
 import { useState } from 'react';
-import Login from './pages/Login';
-import Contact from './components/navbar/Contact';
+import Login from './routes/Login';
+import Contact from './routes/Contact';
+import Navbar from './components/navbar/Navbar';
+import Cart from './components/cart/Cart';
 
 function App() {
 
     const [cartVisible, setCartVisible] = useState(false);
     const [loggedIn, setLoggedIn] = useState(false);
+    const [shoppingCart, setShoppingCart] = useState([]);
+
 
     const toggleCartVisibility = () => {
         setCartVisible(!cartVisible);
     };
 
-    const [shoppingCart, setShoppingCart] = useState([]);
 
     const addToCart = (menuItem) => {
 
-    const existingItem = shoppingCart.find(item => item.name === menuItem.name);
+      const existingItem = shoppingCart.find(item => item.name === menuItem.name);
 
-    if (existingItem) {
-        const updatedItems = shoppingCart.map(item =>
-            item.name === menuItem.name ? { ...item, quantity: item.quantity + 1 } : item
-        );
-        setShoppingCart(updatedItems);
-        } else {
-            setShoppingCart([...shoppingCart, { ...menuItem, quantity: 1 }]);
-        }
+      if (existingItem) {
+          const updatedItems = shoppingCart.map(item =>
+              item.name === menuItem.name ? { ...item, quantity: item.quantity + 1 } : item
+          );
+          setShoppingCart(updatedItems);
+          } else {
+              setShoppingCart([...shoppingCart, { ...menuItem, quantity: 1 }]);
+          }
     };
+
 
     const remFromCart = (menuItem) => {
 
-    const existingItem = shoppingCart.find(item => item.name === menuItem.name);
+      const existingItem = shoppingCart.find(item => item.name === menuItem.name);
 
-    if (existingItem) {
-        if (existingItem.quantity === 1) {
-            const updatedItems = shoppingCart.filter(item => item.name !== menuItem.name);
-            setShoppingCart(updatedItems);
-        } else {
-            const updatedItems = shoppingCart.map(item =>
-                item.name === menuItem.name ? { ...item, quantity: item.quantity - 1 } : item
-            );
-            setShoppingCart(updatedItems);
-            }
-        }
+      if (existingItem) {
+          if (existingItem.quantity === 1) {
+              const updatedItems = shoppingCart.filter(item => item.name !== menuItem.name);
+              setShoppingCart(updatedItems);
+          } else {
+              const updatedItems = shoppingCart.map(item =>
+                  item.name === menuItem.name ? { ...item, quantity: item.quantity - 1 } : item
+              );
+              setShoppingCart(updatedItems);
+              }
+          }
     };
-
-  const router = createBrowserRouter([
-  	{
-        path: '/',
-  		element: <Layout 
-                    shoppingCart={shoppingCart}
-                    addToCart={addToCart}
-                    remFromCart={remFromCart} 
-                    cartVisible={cartVisible}
-                    toggleCartVisibility={toggleCartVisibility}
-                    loggedIn={loggedIn}
-                    setLoggedIn={setLoggedIn}
-                />,
-  		children: [
-  			{
-  				path: '/menu',
-  				element: <Menu
-                            addToCart={addToCart} 
-                            cartVisible={cartVisible} 
-                            toggleCartVisibility={toggleCartVisibility} 
-                        />,
-  			},
-  			{
-  				path: '/contact',
-  				element: <Contact />,
-  			},
-  		],
-  	},
-  	{
-  		path: '/login',
-  		element: <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />,
-  	},
-  ]);
 
     const theme = createTheme({
       components: {
@@ -114,7 +85,51 @@ function App() {
     <ThemeProvider theme={theme}>
         <div className="App">
             <CssBaseline />
-	    	<RouterProvider router={router} />
+            <Navbar 
+              shoppingCart={shoppingCart} 
+              toggleCartVisibility={toggleCartVisibility} 
+              cartVisible={cartVisible}
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+            />
+            {cartVisible && 
+              <Cart
+                  shoppingCart={shoppingCart} 
+                  remFromCart={remFromCart} 
+                  addToCart={addToCart}
+              />}
+            <Routes>
+              <Route
+                path='/'
+                element={
+                  <Menu
+                    addToCart={addToCart} 
+                    cartVisible={cartVisible} 
+                    toggleCartVisibility={toggleCartVisibility}
+                    />}
+                  />
+              <Route 
+                path='/menu' 
+                element={
+                  <Menu
+                    addToCart={addToCart} 
+                    cartVisible={cartVisible} 
+                    toggleCartVisibility={toggleCartVisibility} 
+                  />} 
+              />
+              <Route 
+                path='/login'
+                element={
+                  <Login
+                    loggedIn={loggedIn}
+                    setLoggedIn={setLoggedIn}
+                  />}
+                 />
+              <Route
+                path='/contact'
+                element={<Contact />}
+              />
+            </Routes>
         </div>
     </ThemeProvider>
   );
